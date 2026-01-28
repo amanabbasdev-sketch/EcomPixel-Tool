@@ -4,12 +4,12 @@ import uuid
 import zipfile
 import asyncio
 from typing import List
-from fastapi import FastAPI, UploadFile, File, Form, BackgroundTasks
+from fastapi import FastAPI, UploadFile, File, Form, BackgroundTasks, Response
 from fastapi.responses import JSONResponse, FileResponse
 from fastapi.staticfiles import StaticFiles
 from app.core import process_single_image
 
-app = FastAPI(title="ClearCut AI")
+app = FastAPI(title="EcomPixel Tool")
 
 TEMP_DIR = "static/temp"
 os.makedirs(TEMP_DIR, exist_ok=True)
@@ -18,6 +18,29 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 @app.get("/")
 def read_root():
     return FileResponse('static/dashboard.html')
+
+# ✅ SEO: Robots.txt (Google ko batane ke liye ki kya crawl karna hai)
+@app.get("/robots.txt")
+def robots_txt():
+    content = """User-agent: *
+Allow: /
+Sitemap: https://ecompixel-tool.onrender.com/sitemap.xml
+"""
+    return Response(content=content, media_type="text/plain")
+
+# ✅ SEO: Sitemap.xml (Site ka map)
+@app.get("/sitemap.xml")
+def sitemap_xml():
+    content = """<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://ecompixel-tool.onrender.com/</loc>
+    <lastmod>2026-01-29</lastmod>
+    <priority>1.0</priority>
+  </url>
+</urlset>
+"""
+    return Response(content=content, media_type="application/xml")
 
 async def remove_file_after_delay(path: str, delay: int = 600):
     await asyncio.sleep(delay)
@@ -54,13 +77,12 @@ async def process_images(
         else:
             target_kb = int(target_file_size)
 
-    # Determine Extension
     ext = ".png"
     if output_format == "JPEG": ext = ".jpg"
     if output_format == "WEBP": ext = ".webp"
     if output_format == "BMP": ext = ".bmp"
 
-    zip_filename = "ClearCutAI_Results.zip"
+    zip_filename = "EcomPixel_Results.zip"
     zip_path = os.path.join(user_folder, zip_filename)
 
     with zipfile.ZipFile(zip_path, "w", zipfile.ZIP_DEFLATED) as zip_file:
@@ -78,20 +100,13 @@ async def process_images(
             )
             
             if processed_bytes:
-                # ✅ FIX: Filename ko safe aur short banana
                 original_name = os.path.splitext(file.filename)[0]
-                
-                # Sirf alphanumeric characters rakhein
                 safe_name = "".join(c for c in original_name if c.isalnum() or c in (' ', '-', '_')).strip()
-                
-                # Agar naam 50 characters se bada hai to kaat do
-                if len(safe_name) > 50:
-                    safe_name = safe_name[:50]
+                if len(safe_name) > 50: safe_name = safe_name[:50]
                 
                 filename = safe_name + ext
                 file_path = os.path.join(user_folder, filename)
                 
-                # Ab Save karein
                 with open(file_path, "wb") as f:
                     f.write(processed_bytes)
                 zip_file.write(file_path, arcname=filename)

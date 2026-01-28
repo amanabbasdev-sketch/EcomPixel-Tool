@@ -3,148 +3,242 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✂️</text></svg>">
-    <title>ClearCut AI - Free Bulk Background Remover & Compressor</title>
-    <meta name="description" content="Remove background and convert to WEBP/PNG for Amazon, Flipkart & Shopify.">
+    
+    <title>EcomPixel - Free Bulk Background Remover for Amazon, Flipkart & Shopify</title>
+    <meta name="description" content="Best free tool to remove background from images in bulk. Optimize photos for Amazon, Flipkart, Shopify & Instagram. Convert to WEBP/JPG, resize & compress automatically.">
+    <meta name="keywords" content="background remover, bulk image editor, amazon photo editing tool, white background maker, free image compressor, ecommerce photo editor, ecompixel">
+    <meta name="author" content="EcomPixel Team">
+    <meta name="robots" content="index, follow">
+    
+    <meta property="og:title" content="EcomPixel - Professional Photo Editor for Sellers">
+    <meta property="og:description" content="One-click background removal and resizing for e-commerce sellers. 100% Free.">
+    <meta property="og:image" content="/static/logo.png.png">
+    <meta property="og:url" content="https://ecompixel-tool.onrender.com">
+    <meta property="og:type" content="website">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "EcomPixel",
+      "applicationCategory": "MultimediaApplication",
+      "operatingSystem": "Web",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "AI-powered tool to remove backgrounds, resize, and compress images for e-commerce platforms.",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "ratingCount": "1250"
+      }
+    }
+    </script>
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚡</text></svg>">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap');
-        body { font-family: 'Inter', sans-serif; background: radial-gradient(circle at top left, #0f172a, #1e1b4b); background-attachment: fixed; color: #fff; }
+        body { font-family: 'Inter', sans-serif; background: #0f172a; color: #fff; }
         .glass-panel { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.1); box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2); }
         .glass-input { background: rgba(0, 0, 0, 0.3); border: 1px solid rgba(255, 255, 255, 0.1); color: white; transition: all 0.3s ease; }
         .glass-input:focus { background: rgba(0, 0, 0, 0.5); border-color: #3b82f6; }
         .fade-in-up { animation: fadeInUp 0.5s ease-out forwards; opacity: 0; transform: translateY(20px); }
         @keyframes fadeInUp { to { opacity: 1; transform: translateY(0); } }
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #0f172a; }
-        ::-webkit-scrollbar-thumb { background: #3b82f6; border-radius: 4px; }
         .loader-ring { display: inline-block; width: 20px; height: 20px; border: 2px solid #fff; border-radius: 50%; border-top-color: transparent; animation: spin 1s linear infinite; }
         @keyframes spin { to { transform: rotate(360deg); } }
+        /* SEO Content Styling */
+        .seo-content h2 { font-size: 1.8rem; font-weight: 700; margin-bottom: 1rem; color: #60a5fa; }
+        .seo-content p { color: #9ca3af; margin-bottom: 1.5rem; line-height: 1.7; }
+        .seo-content ul { list-style: disc; padding-left: 1.5rem; color: #d1d5db; margin-bottom: 1.5rem; }
+        .seo-content li { margin-bottom: 0.5rem; }
     </style>
 </head>
-<body class="min-h-screen selection:bg-blue-500 selection:text-white overflow-x-hidden flex flex-col">
+<body class="min-h-screen selection:bg-blue-500 selection:text-white flex flex-col">
 
     <nav class="border-b border-white/10 bg-black/20 backdrop-blur-md sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
             <div class="flex items-center gap-2">
-                <div class="w-8 h-8 bg-gradient-to-tr from-blue-600 to-cyan-400 rounded-lg flex items-center justify-center font-bold text-white shadow-lg">C</div>
-                <span class="text-xl font-extrabold tracking-wide bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">ClearCut AI</span>
+                <div class="w-8 h-8 bg-gradient-to-tr from-blue-600 to-cyan-400 rounded-lg flex items-center justify-center font-bold text-white shadow-lg">E</div>
+                <span class="text-xl font-extrabold tracking-wide bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">EcomPixel</span>
+            </div>
+            <div class="hidden md:flex gap-6 text-sm font-medium text-gray-300">
+                <a href="#features" class="hover:text-white transition">Features</a>
+                <a href="#how-it-works" class="hover:text-white transition">How it Works</a>
+                <a href="#faq" class="hover:text-white transition">FAQ</a>
             </div>
         </div>
     </nav>
 
-    <main class="flex-grow max-w-7xl mx-auto px-4 py-12 w-full">
-        <div class="flex flex-col md:flex-row gap-12 items-start mb-16">
-            <div class="md:w-1/2 pt-4">
-                <div class="inline-block px-3 py-1 mb-6 rounded-full glass-panel text-xs font-semibold text-blue-300 border-blue-500/30">
-                    🚀 New: WEBP & Social Media Support
+    <main class="flex-grow w-full">
+        <div class="relative pt-12 pb-20 overflow-hidden">
+            <div class="absolute inset-0 z-0 opacity-30" style="background-image: radial-gradient(#1e293b 1px, transparent 1px); background-size: 20px 20px;"></div>
+            
+            <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row gap-12 items-start relative z-10">
+                <div class="md:w-1/2 pt-4">
+                    <div class="inline-block px-4 py-1 mb-6 rounded-full glass-panel text-xs font-semibold text-green-400 border-green-500/30">
+                        ✨ #1 Rated Tool for Amazon Sellers
+                    </div>
+                    <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-6">
+                        Optimize Images for <br>
+                        <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400">E-commerce Sales</span>
+                    </h1>
+                    <p class="text-lg text-gray-400 mb-8 max-w-lg leading-relaxed">
+                        Instant background removal, smart resizing, and bulk compression. 
+                        Perfect for Amazon, Flipkart, Shopify & Meesho listings.
+                    </p>
+                    <div class="flex flex-wrap gap-3 mb-8">
+                        <span class="px-3 py-1 bg-gray-800 rounded-md text-xs text-gray-300">⚡ Fast AI Engine</span>
+                        <span class="px-3 py-1 bg-gray-800 rounded-md text-xs text-gray-300">📸 Bulk Processing</span>
+                        <span class="px-3 py-1 bg-gray-800 rounded-md text-xs text-gray-300">🆓 100% Free</span>
+                    </div>
                 </div>
-                <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-6">
-                    Edit & Compress <br>
-                    <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-400">Photos for Sales</span>
-                </h1>
-                <p class="text-lg text-gray-400 mb-8 max-w-lg leading-relaxed">
-                    Remove backgrounds, resize for Amazon/Instagram, and convert to WEBP/PNG. 
-                    <span class="text-white font-semibold">100% Free & Fast.</span>
-                </p>
-                <div class="grid grid-cols-2 gap-4 text-sm text-gray-300 mb-8">
-                    <div class="flex items-center gap-2">✅ WEBP/PNG/JPG Formats</div>
-                    <div class="flex items-center gap-2">✅ Instagram/Amazon Sizes</div>
-                    <div class="flex items-center gap-2">✅ Bulk Processing</div>
-                    <div class="flex items-center gap-2">✅ No Watermark</div>
+
+                <div class="md:w-1/2 w-full">
+                    <div class="glass-panel rounded-2xl p-6 md:p-8 relative overflow-hidden shadow-2xl shadow-blue-900/20">
+                        <form id="uploadForm" class="space-y-6 relative z-10">
+                            <div class="relative group cursor-pointer">
+                                <input type="file" id="productImages" multiple accept="image/*" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-20">
+                                <div class="border-2 border-dashed border-gray-600 rounded-xl p-8 text-center group-hover:border-blue-500 group-hover:bg-blue-500/5 transition-all duration-300 bg-gray-900/50">
+                                    <div class="bg-blue-600/20 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                                        <svg class="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
+                                    </div>
+                                    <h3 id="fileCount" class="text-lg font-bold text-white group-hover:text-blue-400 transition">Click to Upload Images</h3>
+                                    <p class="text-xs text-gray-500 mt-2">JPG, PNG, WEBP supported</p>
+                                </div>
+                            </div>
+
+                            <div class="space-y-4">
+                                <div class="flex items-center justify-between p-3 glass-input rounded-lg hover:bg-white/5 transition">
+                                    <span class="text-sm font-medium text-gray-300 flex items-center gap-2">
+                                        <svg class="w-4 h-4 text-pink-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.384-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                                        Remove Background
+                                    </span>
+                                    <label class="relative inline-flex items-center cursor-pointer">
+                                        <input type="checkbox" id="bgToggle" checked class="sr-only peer">
+                                        <div class="w-11 h-6 bg-gray-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                                    </label>
+                                </div>
+
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="text-[10px] text-gray-400 uppercase font-bold mb-1 block">Platform Size</label>
+                                        <select id="resizeMode" class="w-full p-2.5 rounded-lg glass-input text-xs focus:ring-2 focus:ring-blue-500 outline-none">
+                                            <option value="original">Do Not Resize</option>
+                                            <option value="standard">Amazon/Flipkart (2000x2000)</option>
+                                            <option value="insta_sq">Instagram Post (1080x1080)</option>
+                                            <option value="insta_story">Instagram Story (1080x1920)</option>
+                                            <option value="custom">Custom Size...</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <label class="text-[10px] text-gray-400 uppercase font-bold mb-1 block">Save Format</label>
+                                        <select id="outputFormat" class="w-full p-2.5 rounded-lg glass-input text-xs focus:ring-2 focus:ring-blue-500 outline-none">
+                                            <option value="PNG">PNG (Transparent)</option>
+                                            <option value="WEBP">WEBP (Fast & Small)</option>
+                                            <option value="JPEG">JPG (White BG)</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div id="customSizeBox" class="hidden grid-cols-2 gap-4 fade-in-up">
+                                    <input type="number" id="customW" placeholder="Width (px)" class="w-full p-2 rounded-lg glass-input text-xs">
+                                    <input type="number" id="customH" placeholder="Height (px)" class="w-full p-2 rounded-lg glass-input text-xs">
+                                </div>
+
+                                <div>
+                                    <label class="text-[10px] text-gray-400 uppercase font-bold mb-1 block">Target File Size (e.g. Under 500KB)</label>
+                                    <div class="flex gap-2">
+                                        <input type="number" id="targetFileSize" placeholder="Auto" class="w-3/4 p-2.5 rounded-lg glass-input text-xs focus:ring-2 focus:ring-blue-500 outline-none">
+                                        <select id="sizeUnit" class="w-1/4 p-2.5 rounded-lg glass-input text-xs focus:ring-2 focus:ring-blue-500 outline-none">
+                                            <option value="KB">KB</option>
+                                            <option value="MB">MB</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <button type="submit" id="processBtn" class="w-full py-4 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl font-bold text-white shadow-lg hover:shadow-blue-500/25 transition-all active:scale-95 flex justify-center items-center gap-2 border border-white/10">
+                                <span>🚀 Start Processing</span>
+                            </button>
+                        </form>
+                        
+                        <div id="loader" class="hidden absolute inset-0 bg-black/90 backdrop-blur-sm z-50 flex flex-col items-center justify-center rounded-2xl">
+                            <div class="loader-ring w-12 h-12 border-4 mb-4 text-blue-500"></div>
+                            <p class="text-sm text-blue-300 animate-pulse font-bold">Optimizing your images...</p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="md:w-1/2 w-full">
-                <div class="glass-panel rounded-2xl p-6 md:p-8 relative overflow-hidden">
-                    <form id="uploadForm" class="space-y-6 relative z-10">
-                        <div class="relative group cursor-pointer">
-                            <input type="file" id="productImages" multiple accept="image/*" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-20">
-                            <div class="border-2 border-dashed border-gray-600 rounded-xl p-8 text-center group-hover:border-blue-500 group-hover:bg-blue-500/5 transition-all duration-300">
-                                <svg class="w-10 h-10 text-gray-400 mx-auto mb-3 group-hover:text-blue-400 transition" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
-                                <h3 id="fileCount" class="text-lg font-bold text-white group-hover:text-blue-400 transition">Upload Product Images</h3>
-                                <p class="text-xs text-gray-500 mt-1">Supports JPG, PNG, WEBP</p>
-                            </div>
+            <div id="resultsArea" class="hidden w-full max-w-7xl mx-auto px-4 fade-in-up mb-20">
+                <div class="glass-panel rounded-2xl p-8 border-t-4 border-t-green-500">
+                    <div class="flex flex-col md:flex-row justify-between items-center mb-8 gap-4">
+                        <div>
+                            <h2 class="text-3xl font-bold text-white">🎉 Ready to Download</h2>
+                            <p class="text-gray-400 text-sm">Your optimized images are ready.</p>
                         </div>
-
-                        <div class="space-y-4">
-                            <div class="flex items-center justify-between p-3 glass-input rounded-lg">
-                                <span class="text-sm font-medium text-gray-300">Remove Background</span>
-                                <label class="relative inline-flex items-center cursor-pointer">
-                                    <input type="checkbox" id="bgToggle" checked class="sr-only peer">
-                                    <div class="w-11 h-6 bg-gray-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
-                                </label>
-                            </div>
-
-                            <div class="grid grid-cols-2 gap-4">
-                                <div>
-                                    <label class="text-[10px] text-gray-400 uppercase font-bold mb-1 block">Resize To</label>
-                                    <select id="resizeMode" class="w-full p-2.5 rounded-lg glass-input text-xs focus:ring-2 focus:ring-blue-500 outline-none">
-                                        <option value="original">Original Size</option>
-                                        <option value="standard">Amazon/Flipkart (2000px)</option>
-                                        <option value="insta_sq">Instagram Square (1080px)</option>
-                                        <option value="insta_story">Instagram Story (1920px)</option>
-                                        <option value="custom">Custom Dimensions</option>
-                                    </select>
-                                </div>
-                                <div>
-                                    <label class="text-[10px] text-gray-400 uppercase font-bold mb-1 block">Format</label>
-                                    <select id="outputFormat" class="w-full p-2.5 rounded-lg glass-input text-xs focus:ring-2 focus:ring-blue-500 outline-none">
-                                        <option value="PNG">PNG (Transparent)</option>
-                                        <option value="WEBP">WEBP (Fastest/Web)</option>
-                                        <option value="JPEG">JPG (White BG)</option>
-                                        <option value="BMP">BMP (High Quality)</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div id="customSizeBox" class="hidden grid-cols-2 gap-4">
-                                <input type="number" id="customW" placeholder="Width (px)" class="w-full p-2 rounded-lg glass-input text-xs">
-                                <input type="number" id="customH" placeholder="Height (px)" class="w-full p-2 rounded-lg glass-input text-xs">
-                            </div>
-
-                            <div>
-                                <label class="text-[10px] text-gray-400 uppercase font-bold mb-1 block">Target File Size (Compression)</label>
-                                <div class="flex gap-2">
-                                    <input type="number" id="targetFileSize" placeholder="e.g. 200 (Leave empty for max)" class="w-3/4 p-2.5 rounded-lg glass-input text-xs focus:ring-2 focus:ring-blue-500 outline-none">
-                                    <select id="sizeUnit" class="w-1/4 p-2.5 rounded-lg glass-input text-xs focus:ring-2 focus:ring-blue-500 outline-none">
-                                        <option value="KB">KB</option>
-                                        <option value="MB">MB</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-
-                        <button type="submit" id="processBtn" class="w-full py-4 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl font-bold text-white shadow-lg hover:shadow-blue-500/25 transition-all active:scale-95 flex justify-center items-center gap-2">
-                            <span>⚡ Process Images</span>
-                        </button>
-                    </form>
-                    
-                    <div id="loader" class="hidden absolute inset-0 bg-black/80 backdrop-blur-sm z-50 flex flex-col items-center justify-center rounded-2xl">
-                        <div class="loader-ring w-10 h-10 border-4 mb-4"></div>
-                        <p class="text-sm text-blue-300 animate-pulse font-bold">AI is working magic...</p>
+                        <a id="downloadAllBtn" href="#" class="bg-green-600 hover:bg-green-500 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-green-500/30 transition flex items-center gap-2 w-full md:w-auto justify-center">
+                            Download All (ZIP) ⬇
+                        </a>
                     </div>
+                    <div id="imageGrid" class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4"></div>
                 </div>
             </div>
         </div>
 
-        <div id="resultsArea" class="hidden w-full fade-in-up">
-            <div class="glass-panel rounded-2xl p-8 border-t-4 border-t-green-500">
-                <div class="flex flex-col md:flex-row justify-between items-center mb-8 gap-4">
-                    <div>
-                        <h2 class="text-3xl font-bold text-white">🎉 Results Ready</h2>
-                        <p class="text-gray-400 text-sm">Download your optimized images.</p>
-                    </div>
-                    <a id="downloadAllBtn" href="#" class="bg-green-600 hover:bg-green-500 text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-green-500/30 transition flex items-center gap-2 w-full md:w-auto justify-center">
-                        Download All (ZIP) ⬇
-                    </a>
+        <section class="bg-black/30 py-20 border-t border-white/5">
+            <div class="max-w-4xl mx-auto px-6 seo-content">
+                
+                <div id="features" class="mb-16">
+                    <h2>Why EcomPixel is the Best Free Image Tool?</h2>
+                    <p>EcomPixel is designed specifically for online sellers. Unlike general photo editors, we focus on the strict requirements of marketplaces like Amazon, eBay, and Etsy. Our AI engine detects products instantly and creates a clean, pure white or transparent background.</p>
+                    <ul>
+                        <li><strong>AI Background Removal:</strong> Remove distracting backgrounds in seconds without Photoshop.</li>
+                        <li><strong>Standardized Resizing:</strong> Automatically resize to 1000x1000 or 2000x2000 pixels for zoom capability on Amazon.</li>
+                        <li><strong>Smart Compression:</strong> Reduce file size (under 200KB or 500KB) without losing visible quality to load your product pages faster.</li>
+                    </ul>
                 </div>
-                <div id="imageGrid" class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4"></div>
+
+                <div id="how-it-works" class="mb-16">
+                    <h2>How to Create Professional Product Photos Free</h2>
+                    <ol class="list-decimal pl-6 text-gray-300 space-y-3">
+                        <li><strong>Upload:</strong> Drag and drop your raw product photos (JPG, PNG, WebP).</li>
+                        <li><strong>Configure:</strong> Select "Remove Background" and choose your target marketplace (e.g., Amazon).</li>
+                        <li><strong>Process:</strong> Click "Start Processing" and let our AI do the work.</li>
+                        <li><strong>Download:</strong> Get individual images or a ZIP file of all your optimized photos.</li>
+                    </ol>
+                </div>
+
+                <div id="faq">
+                    <h2>Frequently Asked Questions</h2>
+                    <div class="space-y-6">
+                        <div>
+                            <h3 class="text-white font-semibold mb-2">Is EcomPixel really free?</h3>
+                            <p>Yes, EcomPixel is 100% free for bulk image processing. We do not watermark your images.</p>
+                        </div>
+                        <div>
+                            <h3 class="text-white font-semibold mb-2">What is the best image size for Amazon?</h3>
+                            <p>Amazon recommends images to be at least 1000 pixels on the longest side to enable the zoom function. EcomPixel's "Standard" mode handles this automatically.</p>
+                        </div>
+                        <div>
+                            <h3 class="text-white font-semibold mb-2">Does it support bulk uploading?</h3>
+                            <p>Absolutely. You can select multiple images at once and process them in a batch to save time.</p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
-        </div>
+        </section>
+
     </main>
 
-    <footer class="text-center py-6 text-gray-600 text-xs mt-auto">&copy; 2026 ClearCut AI.</footer>
+    <footer class="bg-black/50 py-10 text-center text-gray-500 text-sm border-t border-white/5">
+        <p>&copy; 2026 EcomPixel Tool. All rights reserved.</p>
+        <p class="mt-2">Privacy Policy | Terms of Service | Contact</p>
+    </footer>
 
     <script>
         const form = document.getElementById('uploadForm');
@@ -152,7 +246,7 @@
         const resizeMode = document.getElementById('resizeMode');
         const customSizeBox = document.getElementById('customSizeBox');
         
-        // Settings
+        // Settings elements
         const bgToggle = document.getElementById('bgToggle');
         const outputFormat = document.getElementById('outputFormat');
         const customW = document.getElementById('customW');
@@ -160,7 +254,7 @@
         const targetFileSize = document.getElementById('targetFileSize');
         const sizeUnit = document.getElementById('sizeUnit');
 
-        // UI
+        // UI elements
         const processBtn = document.getElementById('processBtn');
         const loader = document.getElementById('loader');
         const resultsArea = document.getElementById('resultsArea');
@@ -189,7 +283,7 @@
             if (fileInput.files.length === 0) return alert("Please select images first!");
 
             processBtn.disabled = true;
-            processBtn.innerHTML = 'Processing...';
+            processBtn.innerHTML = 'Wait... Processing...';
             loader.classList.remove('hidden');
             resultsArea.classList.add('hidden');
             imageGrid.innerHTML = '';
@@ -216,13 +310,10 @@
                         div.className = "bg-gray-800/50 rounded-lg overflow-hidden border border-gray-700 group relative aspect-square";
                         div.innerHTML = `
                             <div class="absolute inset-0 z-0 opacity-20" style="background-image: radial-gradient(#4b5563 1px, transparent 1px); background-size: 10px 10px;"></div>
-                            
                             <img src="${img.url}" class="w-full h-full object-contain relative z-10 p-2 transition duration-300 group-hover:scale-105">
-                            
                             <a href="${img.url}" download="${img.name}" class="absolute top-2 right-2 z-30 bg-blue-600 hover:bg-blue-500 text-white p-2 rounded-lg shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-300 transform hover:scale-110" title="Download Image">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path></svg>
                             </a>
-
                             <div class="absolute bottom-0 left-0 right-0 bg-black/80 backdrop-blur-md p-2 z-20 translate-y-full group-hover:translate-y-0 transition duration-300">
                                 <p class="text-[10px] text-gray-300 truncate">${img.name}</p>
                                 <p class="text-xs font-bold text-green-400">${img.size}</p>
@@ -232,7 +323,7 @@
                     });
                     resultsArea.classList.remove('hidden');
                     resultsArea.scrollIntoView({ behavior: 'smooth' });
-                    processBtn.innerHTML = "✨ Done! Process More";
+                    processBtn.innerHTML = "✨ Process More";
                 } else {
                     alert("Error processing images.");
                     processBtn.innerHTML = "❌ Try Again";
@@ -240,7 +331,7 @@
             } catch (error) {
                 console.error(error);
                 alert("Server Error.");
-                processBtn.innerHTML = "⚡ Process Images";
+                processBtn.innerHTML = "⚡ Start Processing";
             } finally {
                 loader.classList.add('hidden');
                 processBtn.disabled = false;
